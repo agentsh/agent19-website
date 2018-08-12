@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.idea
+.env
+.DS_Store
+.vscode
+.tern-port
+npm-debug.log

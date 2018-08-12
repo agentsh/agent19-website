@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.1.4",
+    "dotenv": "^4.0.0",
+    "dotenv-webpack": "^1.5.3",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "latest",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-slick": "^0.15.4",
+    "react-youtube": "^7.4.0",
+    "styled-components": "^2.0.0-17"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.2",
+    "eslint": "^3.19.0",
+    "eslint-plugin-class-property": "^1.0.6",
+    "eslint-plugin-react": "^6.10.3"
+  }
+}
