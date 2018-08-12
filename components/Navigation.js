@@ -8,86 +8,86 @@ import Lines from './Lines';
 const logoSize = 80;
 
 const Header = styled.header`
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 `;
 
 const HeaderContainer = styled.div`
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    z-index: 2;
-    width: ${logoSize}px;
-    transform: translateX(-50%);
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 2;
+  width: ${logoSize}px;
+  transform: translateX(-50%);
 `;
 
 const Logo = styled.div`
-    position: relative;
-    height: ${logoSize}px;
-    width: ${logoSize}px;
-    z-index: 2;
+  position: relative;
+  height: ${logoSize}px;
+  width: ${logoSize}px;
+  z-index: 2;
 
-    background: url(static/logo.png);
-    background-size: ${logoSize}px ${logoSize}px;
-    border-radius: ${logoSize / 2}px;
-    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+  background: url(static/logo.png);
+  background-size: ${logoSize}px ${logoSize}px;
+  border-radius: ${logoSize / 2}px;
+  box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 `;
 
 const Toggler = styled(Button)`
-    position: relative;
-    top: -5px;
-    left: 50%;
-    z-index: 1;
-    transform: translateX(-50%);
+  position: relative;
+  top: -5px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
 
-    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const List = styled.nav`
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
-    background: url(static/menu-background.png) #fff;
+  background: url(static/menu-background.png) #fff;
 
-    text-align: center;
-    text-transform: uppercase;
-    font-family: Teko;
-    font-size: 40px;
-    line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Teko;
+  font-size: 40px;
+  line-height: 1.1;
 
+  > ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    list-style-type: none;
+    list-style-position: inside;
+
+    > li {
+      margin: 20px 0 0 0;
+
+      letter-spacing: 1px;
+
+      > a {
+        color: #2c2c2c;
+        text-decoration: none;
+      }
+    }
+  }
+  @media (max-height: 600px) {
+    font-size: 20px;
     > ul {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 300px;
-        list-style-type: none;
-        list-style-position: inside;
-
-        > li {
-            margin: 20px 0 0 0;
-
-            letter-spacing: 1px;
-
-            > a {
-                color: #2c2c2c;
-                text-decoration: none;
-            }
-        }
+      margin-top: 20px;
+      > li {
+        margin: 10px 0 0 0;
+      }
     }
-    @media (max-height: 600px) {
-        font-size: 20px;
-        > ul {
-            margin-top: 20px;
-            > li {
-                margin: 10px 0 0 0;
-            }
-        }
-    }
+  }
 `;
 
 export default class Navigation extends React.PureComponent {
@@ -129,7 +129,7 @@ export default class Navigation extends React.PureComponent {
                         </Link>
                     </li>
                     <li onClick={this.handleClose}>
-                        <a href="https://www.eventbrite.de/e/agentconf-2018-tickets-31262914218">Tickets</a>
+                        <a href="https://ti.to/stm/agentconf19">Tickets</a>
                     </li>
                     <li onClick={this.handleClose}>
                         <Link href="/dornbirn">

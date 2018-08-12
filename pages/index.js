@@ -18,143 +18,147 @@ import config from '../config';
 
 const maxProgress = 100;
 
-const SlideContainerWrapper = styled.div`height: ${props => props.height}px;`;
+const SlideContainerWrapper = styled.div`
+  height: ${props => props.height}px;
+`;
 
 const IndexContainer = styled.div`
-    h2 {
-        font-size: 48px;
-        font-family: Teko;
-        font-weight: 100;
-        line-height: 54px;
-        color: white;
-        text-transform: uppercase;
-    }
+  h2 {
+    font-size: 48px;
+    font-family: Teko;
+    font-weight: 100;
+    line-height: 54px;
+    color: white;
+    text-transform: uppercase;
+  }
 `;
 
 const SlideContainer = styled.div`
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 100%;
-    background-color: ${props => ('color' in props ? props.color : '#fff')};
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  background-color: ${props => ('color' in props ? props.color : '#fff')};
 
-    h2 {
-        color: black;
-    }
+  h2 {
+    color: black;
+  }
 `;
 
 const MountainCloud = styled.img`
-    position: fixed;
-    will-change: transform, opacity;
+  position: fixed;
+  will-change: transform, opacity;
 `;
 
 const VideoImageContainer = styled.figure`
-    display: flex;
-    align-items: center;
-    position: relative;
-    height: ${props => props.height}px;
-    margin-top: -${props => props.height}px;
-    @media (min-width: 800px) {
-        height: ${props => props.height - 120}px;
-        padding: 60px;
-    }
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: ${props => props.height}px;
+  margin-top: -${props => props.height}px;
+  @media (min-width: 800px) {
+    height: ${props => props.height - 120}px;
+    padding: 60px;
+  }
 `;
 
 const VideoSlideImageContainer = styled.figure`
-    height: 100%;
-    @media (min-width: 800px) {
-        height: calc(100% - ${props => props.margin * 2}px);
-        width: calc(100% - ${props => props.margin * 2}px);
-        margin: ${props => props.margin}px;
-    }
-    background-color: #fff;
-    overflow: hidden;
-    will-change: height, width, margin;
-    position: relative;
+  height: 100%;
+  @media (min-width: 800px) {
+    height: calc(100% - ${props => props.margin * 2}px);
+    width: calc(100% - ${props => props.margin * 2}px);
+    margin: ${props => props.margin}px;
+  }
+  background-color: #fff;
+  overflow: hidden;
+  will-change: height, width, margin;
+  position: relative;
 `;
 
 const videoImageGradient = 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))';
 
 const VideoImage = styled.div`
-    height: 100%;
-    width: 100%;
-    ${props => (props.opacity ? 'opacity: ' + props.opacity : '')};
+  height: 100%;
+  width: 100%;
+  ${props => (props.opacity ? 'opacity: ' + props.opacity : '')};
 
-    background-image: ${videoImageGradient}, url(${props => props.image['small']});
-    background-position: right;
-    background-size: cover;
+  background-image: ${videoImageGradient}, url(${props => props.image['small']});
+  background-position: right;
+  background-size: cover;
 
-    @media (min-width: 1000px) {
-        background-image: ${videoImageGradient}, url(${props => props.image['medium']});
-        background-position: center;
-    }
-    @media (min-width: 2000px) {
-        background-image: ${videoImageGradient}, url(${props => props.image['large']});
-    }
-    position: relative;
-    will-change: opacity;
+  @media (min-width: 1000px) {
+    background-image: ${videoImageGradient}, url(${props => props.image['medium']});
+    background-position: center;
+  }
+  @media (min-width: 2000px) {
+    background-image: ${videoImageGradient}, url(${props => props.image['large']});
+  }
+  position: relative;
+  will-change: opacity;
 `;
 
 const VideoText = styled.div`
-    display: flex;
-    align-items: center;
-    position: ${props => (props.absolute ? 'absolute' : 'fixed')};
-    top: 0;
-    bottom: 0;
-    left: 5%;
-    width: 300px;
-    z-index: 10;
-    color: #ffffff;
-    font-family: Teko;
+  display: flex;
+  align-items: center;
+  position: ${props => (props.absolute ? 'absolute' : 'fixed')};
+  top: 0;
+  bottom: 0;
+  left: 5%;
+  width: 300px;
+  z-index: 10;
+  color: #ffffff;
+  font-family: Teko;
 
-    text-transform: uppercase;
-    font-size: 50px;
-    line-height: 50px;
-    @media (min-width: 800px) {
-        left: 15%;
-        width: 380px;
-        font-size: 64px;
-        line-height: 64px;
-    }
+  text-transform: uppercase;
+  font-size: 50px;
+  line-height: 50px;
+  @media (min-width: 800px) {
+    left: 15%;
+    width: 380px;
+    font-size: 64px;
+    line-height: 64px;
+  }
 `;
 
 const CfpHeader = styled.h2`
-    font-family: Teko;
-    font-size: 36px;
-    font-weight: 100;
-    line-height: 51px;
-    text-transform: uppercase;
+  font-family: Teko;
+  font-size: 36px;
+  font-weight: 100;
+  line-height: 51px;
+  text-transform: uppercase;
 `;
 
 const CfpHeaderClosed = styled.h2`
-    font-family: Teko;
-    font-size: 18px;
-    line-height: 50px;
-    white-space: nowrap;
-    text-transform: uppercase;
-    text-align: center;
+  font-family: Teko;
+  font-size: 18px !important;
+  line-height: 50px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-align: center;
 `;
 
-const CfpDeadline = styled.div`color: #d9d9d9;`;
+const CfpDeadline = styled.div`
+  color: #d9d9d9;
+`;
 
 const CfpSubmit = styled.a`
-    margin-top: 30px;
+  margin-top: 30px;
 
-    color: #ffffff;
-    text-transform: uppercase;
-    font-size: 12px;
-    line-height: 26px;
-    text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 26px;
+  text-decoration: none;
 
-    > span:first-child {
-        margin-right: 15px;
-        text-decoration: underline;
-    }
+  > span:first-child {
+    margin-right: 15px;
+    text-decoration: underline;
+  }
 
-    > span:last-child {
-        font-size: 10px;
-    }
+  > span:last-child {
+    font-size: 10px;
+  }
 `;
 
 class MountainCloudContainer extends React.Component {
@@ -192,33 +196,27 @@ class MountainSlide extends React.PureComponent {
         let slide = null;
 
         if (this.props.animationProgress > 3 * this.progressStep) {
-            // empty slide for transition of background images
+      // empty slide for transition of background images
         } else if (this.props.animationProgress > 2 * this.progressStep) {
             slide = (
                 <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep}>
                     <h2>Learn, talk and ski</h2>
                 </SlideTitle>
-            );
+      );
         } else if (this.props.animationProgress > this.progressStep) {
             slide = (
                 <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep}>
-                    <h3>25 - 28 January 2018</h3>
-                    <h2>
-                        Experts and industry leaders come together to showcase their work in ReactJS, React Native
-                        and more
-                    </h2>
+                    <h3>21 - 24 February 2019</h3>
+                    <h2>Experts and industry leaders come together to showcase their work in ReactJS, React Native and more</h2>
                 </SlideTitle>
-            );
+      );
         } else {
             slide = (
-                <SlideTitle
-                    animationProgress={this.props.animationProgress}
-                    progressStep={this.progressStep}
-                    fadeIn={false}>
+                <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep} fadeIn={false}>
                     <h3>The international event for coding inspiration</h3>
-                    <h1>AgentConf 2018</h1>
+                    <h1>AgentConf 2019</h1>
                 </SlideTitle>
-            );
+      );
         }
 
         return (
@@ -234,10 +232,7 @@ class MountainSlide extends React.PureComponent {
                     image="static/cloud1.png"
                     top={-366}
                     left={-65} />
-                <MountainCloudContainer
-                    animationProgress={this.props.animationProgress}
-                    image="static/cloud2.png"
-                    top={299} />
+                <MountainCloudContainer animationProgress={this.props.animationProgress} image="static/cloud2.png" top={299} />
                 <MountainCloudContainer
                     animationProgress={this.props.animationProgress}
                     image="static/cloud3.png"
@@ -262,15 +257,15 @@ class CitySlide extends React.PureComponent {
         let slideTitleContainer = null;
 
         if (this.props.animationProgress > 2 * this.progressStep) {
-            // empty slide
+      // empty slide
         } else if (this.props.animationProgress > this.progressStep) {
             slideTitleContainer = (
                 <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep}>
                     <h2>Dornbirn, Austria</h2>
                 </SlideTitle>
-            );
+      );
         } else {
-            // empty slide
+      // empty slide
         }
 
         return (
@@ -300,9 +295,7 @@ class VideoSlide extends React.PureComponent {
         return (
             <SlideContainer color="transparent">
                 <VideoSlideImageContainer margin={60 * (this.props.animationProgress - 50) / 50}>
-                    <VideoText absolute={false}>
-                        {this.props.videoHeadline}
-                    </VideoText>
+                    <VideoText absolute={false}>{this.props.videoHeadline}</VideoText>
                     <VideoTrigger absolute={false} handleClick={this.props.startVideo} opacity={opacity} />
                     <VideoImage image={this.props.image} opacity={opacity} />
                 </VideoSlideImageContainer>
@@ -341,7 +334,7 @@ export default class Index extends React.PureComponent {
     static async getInitialProps(ctx) {
         const {req} = ctx;
         const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-        const response = await fetch(config.baseUrl + '/.json');
+        const response = await fetch(config.baseUrl + '/2019/index.json');
         const json = await response.json();
         json.scrollSpeed = 1;
         if (userAgent && userAgent.toLowerCase().match(/(ipad|iphone|ipod|android)/g)) {
@@ -377,33 +370,31 @@ export default class Index extends React.PureComponent {
                 <MountainSlide
                     animationProgress={this.state.scrollY / this.mountainSlideScrollDividend}
                     image={this.props.animationBackground1} />
-            );
+      );
         } else if (this.state.scrollY < mountainSlideHeight + citySlideHeight) {
             citySlide = (
                 <CitySlide
                     animationProgress={(this.state.scrollY - mountainSlideHeight) / this.citySlideScrollDividend}
                     image={this.props.animationBackground2} />
-            );
+      );
         } else if (this.state.scrollY < mountainSlideHeight + citySlideHeight + videoSlideHeight) {
             videoSlide = (
                 <VideoSlide
                     animationProgress={
-                        (this.state.scrollY - mountainSlideHeight - citySlideHeight) / this.videoSlideScrollDividend
-                    }
+            (this.state.scrollY - mountainSlideHeight - citySlideHeight) / this.videoSlideScrollDividend
+          }
                     image={this.props.videoTeaserImage}
                     videoHeadline={this.props.videoHeadline}
                     startVideo={this.toggleVideoPlayer} />
-            );
+      );
         } else {
             videoImageContainer = (
                 <VideoImageContainer height={this.state.windowHeight}>
                     <VideoTrigger absolute={true} handleClick={this.toggleVideoPlayer} />
-                    <VideoText absolute={true}>
-                        {this.props.videoHeadline}
-                    </VideoText>
+                    <VideoText absolute={true}>{this.props.videoHeadline}</VideoText>
                     <VideoImage image={this.props.videoTeaserImage} />
                 </VideoImageContainer>
-            );
+      );
         }
 
         return (
@@ -413,9 +404,7 @@ export default class Index extends React.PureComponent {
                     <SlideContainerWrapper height={mountainSlideHeight / this.props.scrollSpeed}>
                         {mountainSlide}
                     </SlideContainerWrapper>
-                    <SlideContainerWrapper height={citySlideHeight / this.props.scrollSpeed}>
-                        {citySlide}
-                    </SlideContainerWrapper>
+                    <SlideContainerWrapper height={citySlideHeight / this.props.scrollSpeed}>{citySlide}</SlideContainerWrapper>
                     <SlideContainerWrapper height={videoSlideHeight / this.props.scrollSpeed + this.state.windowHeight}>
                         {videoSlide}
                     </SlideContainerWrapper>
@@ -434,10 +423,9 @@ export default class Index extends React.PureComponent {
                         visible={this.state.showVideoPlayer}
                         youtubeId={this.props.videoYoutubeId}
                         handleClose={this.toggleVideoPlayer} />
-                    {new Date(this.props.cfpDeadline).getTime() > new Date().getTime() &&
-                        <EyeCatcher>
-                            {this.renderEyecatcher}
-                        </EyeCatcher>}
+                    {new Date(this.props.cfpDeadline).getTime() > new Date().getTime() && (
+                    <EyeCatcher>{this.renderEyecatcher}</EyeCatcher>
+          )}
                 </Page>
             </IndexContainer>
         );
@@ -449,10 +437,8 @@ export default class Index extends React.PureComponent {
             return (
                 <div>
                     <CfpHeader>Call for Papers</CfpHeader>
-                    <CfpDeadline>
-                        Deadline: {deadline.toDateString()}, 23:59:59 CEST
-                    </CfpDeadline>
-                    <CfpSubmit href="https://www.papercall.io/agent-conf-2018">
+                    <CfpDeadline>Deadline: {deadline.toDateString()}, 23:59:59 CEST</CfpDeadline>
+                    <CfpSubmit href="https://www.papercall.io/agent-conf-2019">
                         <span>Submit Here</span>
                         <Icon name="forward" />
                     </CfpSubmit>
