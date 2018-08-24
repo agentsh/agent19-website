@@ -86,7 +86,7 @@ export default class SpeakerSlider extends React.PureComponent {
 
         return (
             <Container>
-                <Headline>Agentconf 2018 Speaker Lineup</Headline>
+                <Headline>Agentconf 2019 Speaker Lineup</Headline>
                 <SliderContainer>
                     <Slider {...this._sliderSettings()}>
                         {slides}

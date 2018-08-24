@@ -162,301 +162,311 @@ const CfpSubmit = styled.a`
 `;
 
 class MountainCloudContainer extends React.Component {
-    static propTypes = {
-        animationProgress: PropTypes.number.isRequired,
-        image: PropTypes.string.isRequired,
-        left: PropTypes.number,
-        top: PropTypes.number,
-    };
+  static propTypes = {
+    animationProgress: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    left: PropTypes.number,
+    top: PropTypes.number,
+  };
 
-    render() {
-        return (
-            <MountainCloud
-                src={this.props.image}
-                style={{
-                    top: this.props.top + 'px',
-                    left: this.props.left + 'px',
-                    transform: 'scale(' + (1 + this.props.animationProgress / 50) + ')',
-                    opacity: 1 - this.props.animationProgress / 100,
-                }} />
-        );
-    }
+  render() {
+    return (
+      <MountainCloud
+        src={this.props.image}
+        style={{
+          top: this.props.top + 'px',
+          left: this.props.left + 'px',
+          transform: 'scale(' + (1 + this.props.animationProgress / 50) + ')',
+          opacity: 1 - this.props.animationProgress / 100,
+        }}
+      />
+    );
+  }
 }
 
 class MountainSlide extends React.PureComponent {
-    static propTypes = {
-        animationProgress: PropTypes.number.isRequired,
-        image: PropTypes.object.isRequired,
-    };
+  static propTypes = {
+    animationProgress: PropTypes.number.isRequired,
+    image: PropTypes.object.isRequired,
+  };
 
-    slideCount = 4;
-    progressStep = maxProgress / this.slideCount;
+  slideCount = 4;
+  progressStep = maxProgress / this.slideCount;
 
-    render() {
-        let slide = null;
+  render() {
+    let slide = null;
 
-        if (this.props.animationProgress > 3 * this.progressStep) {
+    if (this.props.animationProgress > 3 * this.progressStep) {
       // empty slide for transition of background images
-        } else if (this.props.animationProgress > 2 * this.progressStep) {
-            slide = (
-                <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep}>
-                    <h2>Learn, talk and ski</h2>
-                </SlideTitle>
+    } else if (this.props.animationProgress > 2 * this.progressStep) {
+      slide = (
+        <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep}>
+          <h2>Learn, talk and ski</h2>
+        </SlideTitle>
       );
-        } else if (this.props.animationProgress > this.progressStep) {
-            slide = (
-                <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep}>
-                    <h3>21 - 24 February 2019</h3>
-                    <h2>Experts and industry leaders come together to showcase their work in ReactJS, React Native and more</h2>
-                </SlideTitle>
+    } else if (this.props.animationProgress > this.progressStep) {
+      slide = (
+        <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep}>
+          <h3>21 - 24 February 2019</h3>
+          <h2>Experts and industry leaders come together to showcase their work in ReactJS, React Native and more</h2>
+        </SlideTitle>
       );
-        } else {
-            slide = (
-                <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep} fadeIn={false}>
-                    <h3>The international event for coding inspiration</h3>
-                    <h1>AgentConf 2019</h1>
-                </SlideTitle>
+    } else {
+      slide = (
+        <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep} fadeIn={false}>
+          <h3>The international event for coding inspiration</h3>
+          <h1>AgentConf 2019</h1>
+        </SlideTitle>
       );
-        }
-
-        return (
-            <SlideContainer>
-                <SlideBackground
-                    animationProgress={this.props.animationProgress}
-                    animationSplit={90}
-                    startOpacity={0.4}
-                    topOpacity={0.7}
-                    image={this.props.image} />
-                <MountainCloudContainer
-                    animationProgress={this.props.animationProgress}
-                    image="static/cloud1.png"
-                    top={-366}
-                    left={-65} />
-                <MountainCloudContainer animationProgress={this.props.animationProgress} image="static/cloud2.png" top={299} />
-                <MountainCloudContainer
-                    animationProgress={this.props.animationProgress}
-                    image="static/cloud3.png"
-                    left={-284} />
-                {slide}
-            </SlideContainer>
-        );
     }
+
+    return (
+      <SlideContainer>
+        <SlideBackground
+          animationProgress={this.props.animationProgress}
+          animationSplit={90}
+          startOpacity={0.4}
+          topOpacity={0.7}
+          image={this.props.image}
+        />
+        <MountainCloudContainer
+          animationProgress={this.props.animationProgress}
+          image="static/cloud1.png"
+          top={-366}
+          left={-65}
+        />
+        <MountainCloudContainer animationProgress={this.props.animationProgress} image="static/cloud2.png" top={299} />
+        <MountainCloudContainer
+          animationProgress={this.props.animationProgress}
+          image="static/cloud3.png"
+          left={-284}
+        />
+        {slide}
+      </SlideContainer>
+    );
+  }
 }
 
 class CitySlide extends React.PureComponent {
-    static propTypes = {
-        animationProgress: PropTypes.number.isRequired,
-        image: PropTypes.object.isRequired,
-    };
+  static propTypes = {
+    animationProgress: PropTypes.number.isRequired,
+    image: PropTypes.object.isRequired,
+  };
 
-    maxProgress = 100;
-    slideCount = 3;
-    progressStep = this.maxProgress / this.slideCount;
+  maxProgress = 100;
+  slideCount = 3;
+  progressStep = this.maxProgress / this.slideCount;
 
-    render() {
-        let slideTitleContainer = null;
+  render() {
+    let slideTitleContainer = null;
 
-        if (this.props.animationProgress > 2 * this.progressStep) {
+    if (this.props.animationProgress > 2 * this.progressStep) {
       // empty slide
-        } else if (this.props.animationProgress > this.progressStep) {
-            slideTitleContainer = (
-                <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep}>
-                    <h2>Dornbirn, Austria</h2>
-                </SlideTitle>
+    } else if (this.props.animationProgress > this.progressStep) {
+      slideTitleContainer = (
+        <SlideTitle animationProgress={this.props.animationProgress} progressStep={this.progressStep}>
+          <h2>Dornbirn, Austria</h2>
+        </SlideTitle>
       );
-        } else {
+    } else {
       // empty slide
-        }
-
-        return (
-            <SlideContainer>
-                <SlideBackground
-                    animationProgress={this.props.animationProgress}
-                    animationSplit={50}
-                    startOpacity={0.0}
-                    topOpacity={0.5}
-                    image={this.props.image} />
-                {slideTitleContainer}
-            </SlideContainer>
-        );
     }
+
+    return (
+      <SlideContainer>
+        <SlideBackground
+          animationProgress={this.props.animationProgress}
+          animationSplit={50}
+          startOpacity={0.0}
+          topOpacity={0.5}
+          image={this.props.image}
+        />
+        {slideTitleContainer}
+      </SlideContainer>
+    );
+  }
 }
 
 class VideoSlide extends React.PureComponent {
-    static propTypes = {
-        animationProgress: PropTypes.number.isRequired,
-        image: PropTypes.object.isRequired,
-        videoHeadline: PropTypes.string.isRequired,
-        startVideo: PropTypes.func.isRequired,
-    };
+  static propTypes = {
+    animationProgress: PropTypes.number.isRequired,
+    image: PropTypes.object.isRequired,
+    videoHeadline: PropTypes.string.isRequired,
+    startVideo: PropTypes.func.isRequired,
+  };
 
-    render() {
-        const opacity = (this.props.animationProgress + 1) / 50;
-        return (
-            <SlideContainer color="transparent">
-                <VideoSlideImageContainer margin={60 * (this.props.animationProgress - 50) / 50}>
-                    <VideoText absolute={false}>{this.props.videoHeadline}</VideoText>
-                    <VideoTrigger absolute={false} handleClick={this.props.startVideo} opacity={opacity} />
-                    <VideoImage image={this.props.image} opacity={opacity} />
-                </VideoSlideImageContainer>
-            </SlideContainer>
-        );
-    }
+  render() {
+    const opacity = (this.props.animationProgress + 1) / 50;
+    return (
+      <SlideContainer color="transparent">
+        <VideoSlideImageContainer margin={(60 * (this.props.animationProgress - 50)) / 50}>
+          <VideoText absolute={false}>{this.props.videoHeadline}</VideoText>
+          <VideoTrigger absolute={false} handleClick={this.props.startVideo} opacity={opacity} />
+          <VideoImage image={this.props.image} opacity={opacity} />
+        </VideoSlideImageContainer>
+      </SlideContainer>
+    );
+  }
 }
 
 export default class Index extends React.PureComponent {
-    state = {
-        windowHeight: 0,
-        scrollY: 0,
-        showVideoPlayer: false,
-    };
+  state = {
+    windowHeight: 0,
+    scrollY: 0,
+    showVideoPlayer: false,
+  };
 
-    static propTypes = {
-        animationBackground1: PropTypes.object.isRequired,
-        animationBackground2: PropTypes.object.isRequired,
-        videoTeaserImage: PropTypes.object.isRequired,
-        videoYoutubeId: PropTypes.string.isRequired,
-        videoHeadline: PropTypes.string.isRequired,
-        seo: PropTypes.object.isRequired,
-        cfpDeadline: PropTypes.string.isRequired,
-        speakers: PropTypes.array.isRequired,
-        scrollSpeed: PropTypes.number.isRequired,
-        mainSponsorLogo: PropTypes.string,
-        mainSponsorWebsite: PropTypes.string,
-        sponsors: PropTypes.array,
-        partners: PropTypes.array,
-    };
+  static propTypes = {
+    animationBackground1: PropTypes.object.isRequired,
+    animationBackground2: PropTypes.object.isRequired,
+    videoTeaserImage: PropTypes.object.isRequired,
+    videoYoutubeId: PropTypes.string.isRequired,
+    videoHeadline: PropTypes.string.isRequired,
+    seo: PropTypes.object.isRequired,
+    cfpDeadline: PropTypes.string.isRequired,
+    speakers: PropTypes.array.isRequired,
+    scrollSpeed: PropTypes.number.isRequired,
+    mainSponsorLogo: PropTypes.string,
+    mainSponsorWebsite: PropTypes.string,
+    sponsors: PropTypes.array,
+    partners: PropTypes.array,
+  };
 
-    mountainSlideScrollDividend = 50;
-    citySlideScrollDividend = 30;
-    videoSlideScrollDividend = 10;
+  mountainSlideScrollDividend = 50;
+  citySlideScrollDividend = 30;
+  videoSlideScrollDividend = 10;
 
-    static async getInitialProps(ctx) {
-        const {req} = ctx;
-        const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-        const response = await fetch(config.baseUrl + '/2019/index.json');
-        const json = await response.json();
-        json.scrollSpeed = 1;
-        if (userAgent && userAgent.toLowerCase().match(/(ipad|iphone|ipod|android)/g)) {
-            json.scrollSpeed = 1.5;
-        }
-        return json;
+  static async getInitialProps(ctx) {
+    const {req} = ctx;
+    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
+    const response = await fetch(config.baseUrl + '/2019/index.json');
+    const json = await response.json();
+    json.scrollSpeed = 1;
+    if (userAgent && userAgent.toLowerCase().match(/(ipad|iphone|ipod|android)/g)) {
+      json.scrollSpeed = 1.5;
     }
+    return json;
+  }
 
-    componentDidMount() {
-        this.updateWindowHeight();
-        this.updateScrollY();
-        window.addEventListener('resize', this.updateWindowHeight);
-        window.addEventListener('scroll', this.updateScrollY);
-    }
+  componentDidMount() {
+    this.updateWindowHeight();
+    this.updateScrollY();
+    window.addEventListener('resize', this.updateWindowHeight);
+    window.addEventListener('scroll', this.updateScrollY);
+  }
 
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.updateWindowHeight);
-        window.removeEventListener('scroll', this.updateScrollY);
-    }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowHeight);
+    window.removeEventListener('scroll', this.updateScrollY);
+  }
 
-    render() {
-        const mountainSlideHeight = maxProgress * this.mountainSlideScrollDividend;
-        const citySlideHeight = maxProgress * this.citySlideScrollDividend;
-        const videoSlideHeight = maxProgress * this.videoSlideScrollDividend;
+  render() {
+    const mountainSlideHeight = maxProgress * this.mountainSlideScrollDividend;
+    const citySlideHeight = maxProgress * this.citySlideScrollDividend;
+    const videoSlideHeight = maxProgress * this.videoSlideScrollDividend;
 
-        let mountainSlide = null;
-        let citySlide = null;
-        let videoSlide = null;
-        let videoImageContainer = null;
+    let mountainSlide = null;
+    let citySlide = null;
+    let videoSlide = null;
+    let videoImageContainer = null;
 
-        if (this.state.scrollY < mountainSlideHeight) {
-            mountainSlide = (
-                <MountainSlide
-                    animationProgress={this.state.scrollY / this.mountainSlideScrollDividend}
-                    image={this.props.animationBackground1} />
+    if (this.state.scrollY < mountainSlideHeight) {
+      mountainSlide = (
+        <MountainSlide
+          animationProgress={this.state.scrollY / this.mountainSlideScrollDividend}
+          image={this.props.animationBackground1}
+        />
       );
-        } else if (this.state.scrollY < mountainSlideHeight + citySlideHeight) {
-            citySlide = (
-                <CitySlide
-                    animationProgress={(this.state.scrollY - mountainSlideHeight) / this.citySlideScrollDividend}
-                    image={this.props.animationBackground2} />
+    } else if (this.state.scrollY < mountainSlideHeight + citySlideHeight) {
+      citySlide = (
+        <CitySlide
+          animationProgress={(this.state.scrollY - mountainSlideHeight) / this.citySlideScrollDividend}
+          image={this.props.animationBackground2}
+        />
       );
-        } else if (this.state.scrollY < mountainSlideHeight + citySlideHeight + videoSlideHeight) {
-            videoSlide = (
-                <VideoSlide
-                    animationProgress={
+    } else if (this.state.scrollY < mountainSlideHeight + citySlideHeight + videoSlideHeight) {
+      videoSlide = (
+        <VideoSlide
+          animationProgress={
             (this.state.scrollY - mountainSlideHeight - citySlideHeight) / this.videoSlideScrollDividend
           }
-                    image={this.props.videoTeaserImage}
-                    videoHeadline={this.props.videoHeadline}
-                    startVideo={this.toggleVideoPlayer} />
+          image={this.props.videoTeaserImage}
+          videoHeadline={this.props.videoHeadline}
+          startVideo={this.toggleVideoPlayer}
+        />
       );
-        } else {
-            videoImageContainer = (
-                <VideoImageContainer height={this.state.windowHeight}>
-                    <VideoTrigger absolute={true} handleClick={this.toggleVideoPlayer} />
-                    <VideoText absolute={true}>{this.props.videoHeadline}</VideoText>
-                    <VideoImage image={this.props.videoTeaserImage} />
-                </VideoImageContainer>
+    } else {
+      videoImageContainer = (
+        <VideoImageContainer height={this.state.windowHeight}>
+          <VideoTrigger absolute={true} handleClick={this.toggleVideoPlayer} />
+          <VideoText absolute={true}>{this.props.videoHeadline}</VideoText>
+          <VideoImage image={this.props.videoTeaserImage} />
+        </VideoImageContainer>
       );
-        }
-
-        return (
-            <IndexContainer>
-                <Head {...this.props.seo} />
-                <Page hideHeader={this.state.showVideoPlayer} showScrollInfo={this.state.scrollY < 500}>
-                    <SlideContainerWrapper height={mountainSlideHeight / this.props.scrollSpeed}>
-                        {mountainSlide}
-                    </SlideContainerWrapper>
-                    <SlideContainerWrapper height={citySlideHeight / this.props.scrollSpeed}>{citySlide}</SlideContainerWrapper>
-                    <SlideContainerWrapper height={videoSlideHeight / this.props.scrollSpeed + this.state.windowHeight}>
-                        {videoSlide}
-                    </SlideContainerWrapper>
-                    {videoImageContainer}
-                    {this.props.speakers && <SpeakerSlider speakers={this.props.speakers} />}
-                    <Tickets {...this.props} />
-                    <Sponsors
-                        mainSponsor={{
-                            logo: this.props.mainSponsorLogo,
-                            website: this.props.mainSponsorWebsite,
-                        }}
-                        sponsors={this.props.sponsors}
-                        partners={this.props.partners} />
-                    <Footer />
-                    <VideoPlayer
-                        visible={this.state.showVideoPlayer}
-                        youtubeId={this.props.videoYoutubeId}
-                        handleClose={this.toggleVideoPlayer} />
-                    {new Date(this.props.cfpDeadline).getTime() > new Date().getTime() && (
-                    <EyeCatcher>{this.renderEyecatcher}</EyeCatcher>
-          )}
-                </Page>
-            </IndexContainer>
-        );
     }
 
-    renderEyecatcher = isOpen => {
-        if (isOpen) {
-            const deadline = new Date(this.props.cfpDeadline);
-            return (
-                <div>
-                    <CfpHeader>Call for Papers</CfpHeader>
-                    <CfpDeadline>Deadline: {deadline.toDateString()}, 23:59:59 CEST</CfpDeadline>
-                    <CfpSubmit href="https://www.papercall.io/agent-conf-2019">
-                        <span>Submit Here</span>
-                        <Icon name="forward" />
-                    </CfpSubmit>
-                </div>
-            );
-        } else {
-            return <CfpHeaderClosed>Call for Papers</CfpHeaderClosed>;
-        }
-    };
+    return (
+      <IndexContainer>
+        <Head {...this.props.seo} />
+        <Page hideHeader={this.state.showVideoPlayer} showScrollInfo={this.state.scrollY < 500}>
+          <SlideContainerWrapper height={mountainSlideHeight / this.props.scrollSpeed}>
+            {mountainSlide}
+          </SlideContainerWrapper>
+          <SlideContainerWrapper height={citySlideHeight / this.props.scrollSpeed}>{citySlide}</SlideContainerWrapper>
+          <SlideContainerWrapper height={videoSlideHeight / this.props.scrollSpeed + this.state.windowHeight}>
+            {videoSlide}
+          </SlideContainerWrapper>
+          {videoImageContainer}
+          {this.props.speakers.length > 2 && <SpeakerSlider speakers={this.props.speakers} />}
+          <Tickets {...this.props} />
+          <Sponsors
+            mainSponsor={{
+              logo: this.props.mainSponsor2019Logo,
+              website: this.props.mainSponsor2019Website,
+            }}
+            sponsors={this.props.sponsors2019}
+            partners={this.props.partners2019}
+          />
+          <Footer />
+          <VideoPlayer
+            visible={this.state.showVideoPlayer}
+            youtubeId={this.props.videoYoutubeId}
+            handleClose={this.toggleVideoPlayer}
+          />
+          {new Date(this.props.cfpDeadline).getTime() > new Date().getTime() && (
+            <EyeCatcher>{this.renderEyecatcher}</EyeCatcher>
+          )}
+        </Page>
+      </IndexContainer>
+    );
+  }
 
-    updateWindowHeight = () => {
-        this.setState({windowHeight: window.innerHeight});
-    };
+  renderEyecatcher = isOpen => {
+    if (isOpen) {
+      const deadline = new Date(this.props.cfpDeadline);
+      return (
+        <div>
+          <CfpHeader>Call for Papers</CfpHeader>
+          <CfpDeadline>Deadline: {deadline.toDateString()}, 23:59:59 CEST</CfpDeadline>
+          <CfpSubmit href="https://www.papercall.io/agent-2019">
+            <span>Submit Here</span>
+            <Icon name="forward" />
+          </CfpSubmit>
+        </div>
+      );
+    } else {
+      return <CfpHeaderClosed>Call for Papers</CfpHeaderClosed>;
+    }
+  };
 
-    updateScrollY = () => {
-        this.setState({scrollY: window.scrollY * this.props.scrollSpeed});
-    };
-    toggleVideoPlayer = () => {
-        this.setState({showVideoPlayer: !this.state.showVideoPlayer});
-    };
+  updateWindowHeight = () => {
+    this.setState({windowHeight: window.innerHeight});
+  };
+
+  updateScrollY = () => {
+    this.setState({scrollY: window.scrollY * this.props.scrollSpeed});
+  };
+  toggleVideoPlayer = () => {
+    this.setState({showVideoPlayer: !this.state.showVideoPlayer});
+  };
 }

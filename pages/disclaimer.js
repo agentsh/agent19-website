@@ -4,15 +4,12 @@ import config from '../config';
 
 export default class Disclaimer extends React.Component {
     static async getInitialProps() {
-        const response = await fetch(config.baseUrl + '/disclaimer.json');
+        const response = await fetch(config.baseUrl + '/2019/disclaimer.json');
         const json = await response.json();
         return json;
     }
 
     render() {
-
-        return (
-            <DefaultPage {...this.props} />
-        );
+        return <DefaultPage {...this.props} />;
     }
 }

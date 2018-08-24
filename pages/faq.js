@@ -7,7 +7,7 @@ import fetch from 'isomorphic-fetch';
 
 export default class CodeOfConduct extends React.Component {
     static async getInitialProps() {
-        const response = await fetch(config.baseUrl + '/faq.json');
+      const response = await fetch(config.baseUrl + '/2019/faq.json');
         const json = await response.json();
         return json;
     }

@@ -118,11 +118,11 @@ export default class Navigation extends React.PureComponent {
             <List>
                 <Lines color="rgba(0, 0, 0, 0.07)" />
                 <ul>
-                    <li onClick={this.handleClose}>
-                        <Link href="/schedule">
-                            <a>Schedule</a>
-                        </Link>
-                    </li>
+                    {/* <li onClick={this.handleClose}> */}
+                    {/*     <Link href="/schedule"> */}
+                    {/*         <a>Schedule</a> */}
+                    {/*     </Link> */}
+                    {/* </li> */}
                     <li onClick={this.handleClose}>
                         <Link href="/coc">
                             <a>Code of Conduct</a>
@@ -150,7 +150,7 @@ export default class Navigation extends React.PureComponent {
                         <a href="https://blog.agent.sh">Blog</a>
                     </li>
                     <li onClick={this.handleClose}>
-                        <a href="http://2017.agent.sh">AgentConf 2017</a>
+                        <a href="http://2018.agent.sh">AgentConf 2018</a>
                     </li>
                 </ul>
             </List>

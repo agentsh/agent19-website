@@ -7,14 +7,11 @@ import fetch from 'isomorphic-fetch';
 
 export default class Lech extends React.Component {
     static async getInitialProps() {
-        const response = await fetch(config.baseUrl + '/lech.json');
+        const response = await fetch(config.baseUrl + '/2019/lech.json');
         const json = await response.json();
         return json;
     }
     render() {
-
-        return (
-            <ContentPage {...this.props} />
-        );
+        return <ContentPage {...this.props} />;
     }
 }

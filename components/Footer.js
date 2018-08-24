@@ -6,37 +6,37 @@ import Icon from './Icon';
 import Link from 'next/link';
 
 const FooterContainer = styled.footer`
-    margin: 100px 0 55px 0;
-    padding: 60px 25px;
-    color: white;
-    background-color: black;
-    font-family: Teko;
-    @media (min-width: 800px) {
-        margin: 150px 70px 55px 70px;
-        padding: 45px 60px;
-    }
+  margin: 100px 0 55px 0;
+  padding: 60px 25px;
+  color: white;
+  background-color: black;
+  font-family: Teko;
+  @media (min-width: 800px) {
+    margin: 150px 70px 55px 70px;
+    padding: 45px 60px;
+  }
 `;
 
 const TextLink = styled.a`
-    display: block;
-    color: white;
-    font-size: 22px;
-    line-height: 35px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    @media (min-width: 800px) {
-        display: inline-block;
-        padding-right: 30px;
-    }
+  display: block;
+  color: white;
+  font-size: 22px;
+  line-height: 35px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  @media (min-width: 800px) {
+    display: inline-block;
+    padding-right: 30px;
+  }
 `;
 
 const ButtonLink = styled.a`
-    position: relative;
-    color: black;
-    float: right;
-    margin-left: 10px;
+  position: relative;
+  color: black;
+  float: right;
+  margin-left: 10px;
 `;
 
 const buttonSize = 35;
@@ -47,9 +47,9 @@ export default class Footer extends React.PureComponent {
         return (
             <FooterContainer>
                 <Newsletter />
-                <Link href="/schedule">
-                    <TextLink>Schedule</TextLink>
-                </Link>
+                {/* <Link href="/schedule"> */}
+                {/*     <TextLink>Schedule</TextLink> */}
+                {/* </Link> */}
                 <Link href="/dornbirn">
                     <TextLink>Venue Dornbirn</TextLink>
                 </Link>
@@ -63,8 +63,8 @@ export default class Footer extends React.PureComponent {
                     <TextLink>Disclaimer</TextLink>
                 </Link>
                 <TextLink href="mailto:team@agent.sh" target="_blank">
-                    contact
-                </TextLink>
+          contact
+        </TextLink>
                 <ButtonLink href="https://www.instagram.com/teamagent" target="_blank">
                     <Button size={buttonSize} fontSize={buttonFontSize}>
                         <Icon name="instagram" />
