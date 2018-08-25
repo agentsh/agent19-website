@@ -124,14 +124,6 @@ export default class Navigation extends React.PureComponent {
                     {/*     </Link> */}
                     {/* </li> */}
                     <li onClick={this.handleClose}>
-                        <Link href="/coc">
-                            <a>Code of Conduct</a>
-                        </Link>
-                    </li>
-                    <li onClick={this.handleClose}>
-                        <a href="https://ti.to/stm/agentconf19">Tickets</a>
-                    </li>
-                    <li onClick={this.handleClose}>
                         <Link href="/dornbirn">
                             <a>Venue Dornbirn</a>
                         </Link>
@@ -142,12 +134,29 @@ export default class Navigation extends React.PureComponent {
                         </Link>
                     </li>
                     <li onClick={this.handleClose}>
-                        <Link href="/faq">
-                            <a>FAQ</a>
+                        <a href="https://www.flickr.com/photos/142568661@N06" target="_blank">
+              Photos 2018
+            </a>
+                    </li>
+                    <li onClick={this.handleClose}>
+                        <a href="https://ti.to/stm/agentconf19" target="_blank">
+              Tickets
+            </a>
+                    </li>
+                    <li onClick={this.handleClose}>
+                        <a href="https://blog.agent.sh" target="_blank">
+              Blog
+            </a>
+                    </li>
+                    <li onClick={this.handleClose}>
+                        <Link href="/coc">
+                            <a>Code of Conduct</a>
                         </Link>
                     </li>
                     <li onClick={this.handleClose}>
-                        <a href="https://blog.agent.sh">Blog</a>
+                        <Link href="/faq">
+                            <a>FAQ</a>
+                        </Link>
                     </li>
                     <li onClick={this.handleClose}>
                         <a href="http://2018.agent.sh">AgentConf 2018</a>

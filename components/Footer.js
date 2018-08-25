@@ -56,6 +56,10 @@ export default class Footer extends React.PureComponent {
                 <Link href="/lech">
                     <TextLink>Venue Lech</TextLink>
                 </Link>
+
+                <TextLink href="https://www.flickr.com/photos/142568661@N06" target="_blank">
+          Photos 2018
+        </TextLink>
                 <Link href="/coc">
                     <TextLink>Code of Conduct</TextLink>
                 </Link>
