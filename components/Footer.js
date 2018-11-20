@@ -57,6 +57,9 @@ export default class Footer extends React.PureComponent {
                     <TextLink>Venue Lech</TextLink>
                 </Link>
 
+                <Link href="workshop-react-advanced">
+                    <TextLink>React Advanced by Kitze</TextLink>
+                </Link>
                 <TextLink href="https://www.flickr.com/photos/142568661@N06" target="_blank">
           Photos 2018
         </TextLink>
