@@ -118,11 +118,11 @@ export default class Navigation extends React.PureComponent {
             <List>
                 <Lines color="rgba(0, 0, 0, 0.07)" />
                 <ul>
-                    {/* <li onClick={this.handleClose}> */}
-                    {/*     <Link href="/schedule"> */}
-                    {/*         <a>Schedule</a> */}
-                    {/*     </Link> */}
-                    {/* </li> */}
+                    <li onClick={this.handleClose}>
+                        <Link href="/schedule">
+                            <a>Schedule</a>
+                        </Link>
+                    </li>
                     <li onClick={this.handleClose}>
                         <Link href="/dornbirn">
                             <a>Venue Dornbirn</a>
