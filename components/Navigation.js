@@ -119,6 +119,11 @@ export default class Navigation extends React.PureComponent {
                 <Lines color="rgba(0, 0, 0, 0.07)" />
                 <ul>
                     <li onClick={this.handleClose}>
+                        <a href="https://ti.to/ac/agentconf20" target="_blank">
+                            Tickets
+                        </a>
+                    </li>
+                    <li onClick={this.handleClose}>
                         <Link href="/schedule">
                             <a>Schedule</a>
                         </Link>
@@ -139,11 +144,6 @@ export default class Navigation extends React.PureComponent {
                         </a>
                     </li>
                     <li onClick={this.handleClose}>
-                        <a href="https://blog.agent.sh" target="_blank">
-                            Blog
-                        </a>
-                    </li>
-                    <li onClick={this.handleClose}>
                         <Link href="/coc">
                             <a>Code of Conduct</a>
                         </Link>
@@ -158,11 +158,11 @@ export default class Navigation extends React.PureComponent {
         );
     }
 
-    //         <li onClick={this.handleClose}>
-    //             <a href="https://ti.to/stm/agentconf19" target="_blank">
-    //   Tickets
-    // </a>
-    //         </li>
+    // <li onClick={this.handleClose}>
+    //     <a href="https://blog.agent.sh" target="_blank">
+    //         Blog
+    //     </a>
+    // </li>
     //         <li onClick={this.handleClose}>
     //             <a href="http://2018.agent.sh">AgentConf 2018</a>
     //         </li>

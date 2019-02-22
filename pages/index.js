@@ -15,6 +15,7 @@ import Tickets from '../components/Tickets';
 import VideoPlayer from '../components/VideoPlayer';
 import VideoTrigger from '../components/VideoTrigger';
 import config from '../config';
+import TicketPopUp from '../components/TicketsPopup';
 
 const maxProgress = 100;
 
@@ -410,6 +411,7 @@ export default class Index extends React.PureComponent {
         return (
             <IndexContainer>
                 <Head {...this.props.seo} />
+                <TicketPopUp />
                 <Page hideHeader={this.state.showVideoPlayer} showScrollInfo={this.state.scrollY < 500}>
                     <SlideContainerWrapper height={mountainSlideHeight / this.props.scrollSpeed}>
                         {mountainSlide}
