@@ -9,43 +9,43 @@ const diameter = radius * 2;
 const height = 40;
 
 const FooterContainer = styled.div`
-  position: fixed;
-  left: 50%;
-  bottom: ${-diameter + height}px;
-  transform: translate(-50%);
+    position: fixed;
+    left: 50%;
+    bottom: ${-diameter + height}px;
+    transform: translate(-50%);
 `;
 
 const Circle = styled.div`
-  position: relative;
-  z-index: 2;
-  background: #000;
-  border-radius: ${radius}px;
-  width: ${diameter}px;
-  height: ${diameter}px;
+    position: relative;
+    z-index: 2;
+    background: #000;
+    border-radius: ${radius}px;
+    width: ${diameter}px;
+    height: ${diameter}px;
 
-  font-family: Teko;
-  font-size: 22px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-  letter-spacing: 1px;
-  line-height: 50px;
+    font-family: Teko;
+    font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 50px;
 
-  box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const Action = styled(Button)`
-  position: relative;
-  z-index: 1;
-  left: 50%;
-  top: 5px;
-  transform: translate(-50%);
+    position: relative;
+    z-index: 1;
+    left: 50%;
+    top: 5px;
+    transform: translate(-50%);
 
-  box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.2);
 
-  > span {
-    font-size: 20px;
-  }
+    > span {
+        font-size: 20px;
+    }
 `;
 
 export default class FooterHint extends React.Component {
@@ -66,7 +66,7 @@ export default class FooterHint extends React.Component {
         } else {
             return (
                 <FooterContainer>
-                    <a href="https://ti.to/stm/agentconf19">
+                    <a href="https://ti.to/ac/agentconf20">
                         <Action>
                             <Icon name="ticket" />
                         </Action>
